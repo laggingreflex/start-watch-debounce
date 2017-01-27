@@ -1,21 +1,8 @@
-module.exports = (opts = {}, callback) => (input) => {
+module.exports = (files, opts = {}) => (callback) => () => {
   return function watchDebounce(log, reporter) {
     const Start = require('start').default;
     const watch = require('start-watch').default;
     const debounce = require('debounce-queue');
-
-    if (!callback && typeof opts === 'function') {
-      callback = opts;
-      opts = {};
-    }
-
-    if (typeof opts === 'string' || Array.isArray(opts)) {
-      opts = { files: opts };
-    }
-
-    if (input && input.length && !opts.files) {
-      opts.files = input;
-    }
 
     const start = new Start(reporter);
 
@@ -34,7 +21,11 @@ module.exports = (opts = {}, callback) => (input) => {
         return ret;
       }
     }));
-
-    return start(watch(opts, debouncedCallback));
+    // none of these work:
+    return start(watch(files, opts)(debouncedCallback));
+    // return start(watch(files, opts)((files) => start(debouncedCallback(files))));
+    // return start(watch(files, opts)((files) => start(() => debouncedCallback(files))));
+    // return start(watch(files, opts)((files) => start(() => start(() => debouncedCallback(files)))));
+    // return watch(files, opts)(() => start(debouncedCallback));
   };
 };
