@@ -1,12 +1,12 @@
 {
   "name": "start-watch-debounce",
-  "version": "0.0.0-beta.6",
+  "version": "0.0.0-beta.7",
   "description": "Start watch task with debounce",
   "main": "index.js",
   "repository": "laggingreflex/start-watch-debounce",
   "dependencies": {
     "debounce-queue": "^0.1.0",
-    "start-watch": "start-watch_16b"
+    "start-watch_16b": "^2.0.0"
   },
   "files": [],
   "keywords": [
