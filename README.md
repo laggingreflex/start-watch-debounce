@@ -25,7 +25,7 @@ import write from 'start-write';
 const start = Start(reporter());
 
 export const dev = () => start(
-  watch('lib/**/*.js', changedFiles => start(
+  watch('lib/**/*.js')(changedFiles => start(
     files(changedFiles),
     read(),
     babel(),
