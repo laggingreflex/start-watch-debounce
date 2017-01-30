@@ -8,9 +8,7 @@ module.exports = (files, opts = {}) => (callback) => () => {
 
     return new Promise((resolve, reject) => {
 
-      const callbackWrapper = (...args) => {
-        callback(...args).then(resolve, reject);
-      };
+      const callbackWrapper = (...args) => callback(...args).then(resolve, reject);
 
       const debounced = debounce(callbackWrapper, Object.assign({}, opts, {
         enqueue(data, queue, defaultEnqueue) {
