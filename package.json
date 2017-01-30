@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": "laggingreflex/start-watch-debounce",
   "dependencies": {
-    "debounce-queue": "^0.1.0",
+    "debounce-queue": "^0.2.0",
     "start-watch_16b": "^2.0.0"
   },
   "files": [],
