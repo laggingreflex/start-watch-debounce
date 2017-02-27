@@ -1,6 +1,6 @@
 {
   "name": "start-watch-debounce",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Start watch task with debounce",
   "main": "index.js",
   "repository": "laggingreflex/start-watch-debounce",
