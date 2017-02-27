@@ -1,7 +1,7 @@
-module.exports = (files, opts = {}) => (callback) => () => {
+module.exports = (files, events, opts) => (callback) => () => {
   return function watchDebounce(log, reporter) {
     const Start = require('start').default;
-    const watch = require('start-watch_16b').default;
+    const watch = require('start-watch').default;
     const debounce = require('debounce-queue');
 
     const start = new Start(reporter);
@@ -31,7 +31,7 @@ module.exports = (files, opts = {}) => (callback) => () => {
         resolve();
       });
 
-      return start(watch(files, opts)(debouncedCallback));
+      return start(watch(files, events, opts)(debouncedCallback));
     });
   };
 };
